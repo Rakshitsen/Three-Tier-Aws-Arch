@@ -21,3 +21,8 @@ variable "security_group_id" {
   description = "Security Group ID for the instances"
   type        = string  
 }
+
+variable "iam_instance_profile_name" {
+  description = "IAM Instance Profile Name to attach to the instances"
+  type        = string
+}

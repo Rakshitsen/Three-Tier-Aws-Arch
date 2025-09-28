@@ -82,7 +82,7 @@ target_protocol = "HTTP"
 # Launch Template Configuration
 #-------------------------------------------------------------------------
 launch_template_name = "my-launch-template"
-ami_id = "ami-01b6d88af12965bb6"
+ami_id = "ami-08d612412d853a31c"
 instance_type = "t3.micro"
 volume_size = 20
 

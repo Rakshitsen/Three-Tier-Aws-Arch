@@ -8,8 +8,12 @@ resource "aws_launch_template" "foo" {
     }
   }
 
+
   image_id      = var.ami_id
   instance_type = var.instance_type
+  iam_instance_profile {
+    name = var.iam_instance_profile_name
+  }
 
   network_interfaces {
     associate_public_ip_address = false

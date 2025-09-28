@@ -9,4 +9,5 @@ resource "aws_autoscaling_group" "this" {
     id      = var.launch_template_id
     version = "$Latest"
   }
+  target_group_arns         = var.target_group_arns
 }

@@ -113,6 +113,8 @@ module "S3" {
   versioning      = var.versioning
   index_html_file = var.index_html_file
   error_html_file = var.error_html_file
+  lambda_function_arn = module.lambda.lambda_arn
+  lambda_function_name = module.lambda.function_name
 }
 
 module "sns" {
@@ -167,6 +169,7 @@ module "launch_template" {
   instance_type        = var.instance_type
   volume_size          = var.volume_size
   security_group_id    = module.web_sg.sg_id
+  iam_instance_profile_name = data.aws_iam_role.instance_profile_role.name
 }
 
 module "asg" {
@@ -178,6 +181,7 @@ module "asg" {
   min_size            = var.min_size
   launch_template_id  = module.launch_template.launch_template_id
   subnet_ids          = module.subnet.private_subnet_ids
+  target_group_arns   = [module.alb.target_group_arn]
 }
 
 module "rds" {

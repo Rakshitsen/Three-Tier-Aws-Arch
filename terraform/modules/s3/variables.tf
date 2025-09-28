@@ -14,3 +14,11 @@ variable "error_html_file" {
   description = "Content for the error.html file"
   type        = string
 }
+variable "lambda_function_arn" {
+  description = "ARN of the Lambda function to trigger on S3 events"
+  type        = string
+}
+variable "lambda_function_name" {
+  description = "Name of the Lambda function to grant S3 permission"
+  type        = string
+}
