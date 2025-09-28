@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/upload" method="post" enctype="multipart/form-data" id="employeeForm">
+    <div class="form-group">
+        <label for="name">Full Name <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+    </div>
+
+    <div class="form-group">
+        <label for="location">Location <span class="required">*</span></label>
+        <input type="text" id="location" name="location" required placeholder="Enter your location">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age <span class="required">*</span></label>
+        <input type="number" id="age" name="age" required placeholder="Enter your age" min="18" max="100">
+    </div>
+
+    <div class="form-group">
+        <label for="technology">Technology/Skills <span class="required">*</span></label>
+        <input type="text" id="technology" name="technology" required placeholder="e.g., Python, AWS, React">
+    </div>
+
+    <div class="form-group">
+        <label for="photo">Profile Photo <span class="required">*</span></label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Information</button>
+</form>
+
+<div class="footer">
+    <p>About us Page</p>
+    <a href="/about" class="about-link">More →</a>
+</div>
+{% endblock %}

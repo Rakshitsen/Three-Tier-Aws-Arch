@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Find Employee Information</h1>
+
+<!-- Search Form -->
+<form method="POST" action="/get_employee" class="search-form">
+    <div class="form-group">
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" name="employee_id" placeholder="Enter Employee ID" required>
+    </div>
+    <button type="submit" class="submit-btn">Search</button>
+</form>
+
+<!-- Results Section -->
+{% if employee_id is not none %}
+    {% if employee %}
+        <div class="employee-card">
+            <div class="employee-field">
+                <div class="field-label">Employee ID:</div>
+                <div class="field-value">{{ employee[0] }}</div>
+            </div>
+            <div class="employee-field">
+                <div class="field-label">Name:</div>
+                <div class="field-value">{{ employee[1] }}</div>
+            </div>
+            <div class="employee-field">
+                <div class="field-label">Location:</div>
+                <div class="field-value">{{ employee[2] }}</div>
+            </div>
+            <div class="employee-field">
+                <div class="field-label">Age:</div>
+                <div class="field-value">{{ employee[3] }}</div>
+            </div>
+            <div class="employee-field">
+                <div class="field-label">Technology:</div>
+                <div class="field-value">{{ employee[4] }}</div>
+            </div>
+        </div>
+    {% else %}
+        <div class="not-found">
+            <p>Employee with ID "{{ employee_id }}" not found.</p>
+        </div>
+    {% endif %}
+{% endif %}
+
+<div class="button-group">
+    <a href="/" class="back-button">← Back to Home</a>
+    <a href="/get_employee" class="search-again-btn">Search Again</a>
+</div>
+{% endblock %}
